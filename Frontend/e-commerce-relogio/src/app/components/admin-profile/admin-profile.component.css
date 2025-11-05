@@ -1,0 +1,180 @@
+.profile-container {
+  min-height: 100vh;
+  background: hsl(var(--background));
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+.profile-header {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  color: hsl(var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.username {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.profile-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-section h3,
+.admin-actions h3 {
+  font-size: 1.3rem;
+  color: hsl(var(--foreground));
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: hsl(var(--muted));
+  border-radius: 0.5rem;
+}
+
+.label {
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+}
+
+.value {
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+
+.admin-badge {
+  background: hsl(var(--primary));
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+}
+
+.status-active {
+  color: hsl(142, 76%, 36%);
+  font-weight: 600;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  background: hsl(var(--muted));
+  border: 2px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.action-btn:hover {
+  background: hsl(var(--primary) / 0.1);
+  border-color: hsl(var(--primary));
+  transform: translateY(-2px);
+}
+
+.action-btn .icon {
+  font-size: 2rem;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  background: hsl(var(--muted) / 0.3);
+  border-top: 1px solid hsl(var(--border));
+}
+
+.btn-secondary,
+.btn-logout {
+  flex: 1;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary {
+  background: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+.btn-secondary:hover {
+  background: hsl(var(--secondary) / 0.8);
+}
+
+.btn-logout {
+  background: hsl(var(--destructive));
+  color: white;
+}
+
+.btn-logout:hover {
+  background: hsl(var(--destructive) / 0.9);
+}
+
+@media (max-width: 640px) {
+  .action-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+  }
+}

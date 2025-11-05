@@ -1,8 +1,9 @@
-import { RenderMode, ServerRoute } from '@angular/ssr';
-
-export const serverRoutes: ServerRoute[] = [
+// SSR route metadata kept as plain data so the project does not depend on `@angular/ssr` types.
+// This preserves intent (prerendering) while avoiding runtime type/import errors.
+export const serverRoutes = [
   {
     path: '**',
-    renderMode: RenderMode.Prerender
+    // Intent: prerender this route. Kept as string to avoid depending on `RenderMode` type.
+    renderMode: 'Prerender'
   }
 ];

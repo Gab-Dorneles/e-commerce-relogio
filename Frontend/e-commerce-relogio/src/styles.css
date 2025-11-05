@@ -1,1 +1,241 @@
-/* You can add global styles to this file, and also import other style files */
+/* ======= Estilo base sofisticado ======= */
+body {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: #d4af37;
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+button {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ======= Header e Navegação ======= */
+.app-header {
+  background: #ffffff;
+  color: #1a1a1a;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  color: #b79e4a;
+  font-weight: 500;
+}
+
+/* ======= Navegação ======= */
+.nav-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #1a1a1a;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #d4af37;
+  background: rgba(212, 175, 55, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ======= Botões ======= */
+.auth-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-login {
+  background: linear-gradient(135deg, #d4af37, #b99d32);
+  color: #000;
+  border: none;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
+}
+
+.btn-login:hover {
+  background: linear-gradient(135deg, #f4d35e, #d4af37);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5);
+}
+
+/* ======= Perfil do Usuário ======= */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.btn-profile:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: #d4af37;
+}
+
+.user-name {
+  font-size: 0.95rem;
+}
+
+.user-badge.admin {
+  background: #d4af37;
+  color: #000;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ======= Conteúdo Principal ======= */
+.main-content {
+  background: linear-gradient(to bottom, #fff, #fefbf4);
+  padding: 3rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', serif;
+}
+
+/* ======= Cards de Produto ======= */
+.product-card {
+  background: #ffffff;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.1);
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
+}
+
+.product-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.product-price {
+  color: #d4af37;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* ======= Rodapé ======= */
+.app-footer {
+  background: #fffaf0;
+  color: #1a1a1a;
+  text-align: center;
+  padding: 2rem;
+  border-top: 2px solid #d4af37;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.app-footer p {
+  margin: 0;
+  color: #8b7a2a;
+}
+
+/* ======= Responsividade ======= */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logo-section {
+    text-align: center;
+  }
+
+  .nav-section {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .user-menu {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-profile,
+  .btn-logout-small {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}

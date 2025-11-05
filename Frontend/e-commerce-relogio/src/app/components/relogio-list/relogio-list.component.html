@@ -1,0 +1,106 @@
+<div class="container">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <h1 class="logo">Chronos</h1>
+      <p class="tagline">Coleção Premium de Relógios</p>
+    </div>
+  </header>
+
+  <!-- Search Section -->
+  <div class="search-section">
+    <div class="search-container">
+      <form (ngSubmit)="onSearch()" class="flex items-center gap-2 w-full">
+        <div class="search-field">
+          <span class="search-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </span>
+          <input
+            type="text"
+            name="search"
+            [(ngModel)]="searchTerm"
+            placeholder="Buscar por nome, marca ou categoria..."
+            class="search-input"
+            aria-label="Buscar relógios"
+          />
+          <button *ngIf="searchTerm" type="button" class="clear-button" (click)="clearSearch()" aria-label="Limpar pesquisa">×</button>
+        </div>
+        <button type="submit" class="search-button">
+          Buscar
+        </button>
+      </form>
+    </div>
+    
+    <div class="results-info" *ngIf="!isLoading">
+      <p>{{ totalElements }} relógios encontrados</p>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading">
+    <div class="spinner"></div>
+    <p>Carregando relógios...</p>
+  </div>
+
+  <!-- Products Grid -->
+  <div *ngIf="!isLoading" class="products-grid">
+    <app-relogio-card 
+      *ngFor="let relogio of relogios" 
+      [relogio]="relogio">
+    </app-relogio-card>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!isLoading && relogios.length === 0" class="empty-state">
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="8" x2="12" y2="12"></line>
+      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+    <h3>Nenhum relógio encontrado</h3>
+    <p>Tente ajustar sua busca ou limpar os filtros</p>
+  </div>
+
+  <!-- Pagination -->
+  <div *ngIf="!isLoading && relogios.length > 0" class="pagination">
+    <button 
+      (click)="previousPage()" 
+      [disabled]="currentPage === 0"
+      class="pagination-button"
+      [class.disabled]="currentPage === 0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      Anterior
+    </button>
+
+    <div class="pagination-numbers">
+      <button
+        *ngFor="let page of pages"
+        (click)="goToPage(page)"
+        [class.active]="page === currentPage"
+        class="pagination-number">
+        {{ page + 1 }}
+      </button>
+    </div>
+
+    <button 
+      (click)="nextPage()" 
+      [disabled]="currentPage === totalPages - 1"
+      class="pagination-button"
+      [class.disabled]="currentPage === totalPages - 1">
+      Próxima
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Chronos. Todos os direitos reservados.</p>
+  </footer>
+</div>

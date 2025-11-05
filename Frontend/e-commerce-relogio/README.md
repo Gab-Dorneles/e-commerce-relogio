@@ -1,59 +1,73 @@
-# ECommerceRelogio
+ E-commerce de Relógios - Chronos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.0.
+Aplicação Angular para e-commerce de relógios premium.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+- Listagem de produtos em cards elegantes
+- Sistema de busca por nome, marca e categoria
+- Paginação completa dos resultados
+- Design responsivo e moderno
+- Indicadores de estoque
+- Produtos em destaque
+- Interface elegante inspirada em lojas de luxo
 
-```bash
-ng serve
-```
+## Tecnologias
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Angular 19
+- TypeScript
+- RxJS
+- Standalone Components
+- CSS3 com variáveis customizadas
 
-## Code scaffolding
+## Design
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+O design foi inspirado em e-commerces de luxo, com:
+- Paleta de cores elegante (tons de cinza e preto)
+- Tipografia sofisticada (Inter, Playfair Display, JetBrains Mono)
+- Cards com hover effects suaves
 
-```bash
-ng generate component component-name
-```
+## Como executar
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+\`\`\`bash
+# Instalar dependências
+npm install
 
-```bash
-ng generate --help
-```
+# Executar em modo desenvolvimento
+npm start
 
-## Building
+# Acessar em http://localhost:4200
+\`\`\`
 
-To build the project run:
+## Estrutura do Projeto
 
-```bash
-ng build
-```
+\`\`\`
+src/
+├── app/
+│   ├── components/
+│   │   ├── relogio-list/      # Componente principal com listagem
+│   │   └── relogio-card/      # Card individual de produto
+│   ├── models/
+│   │   └── relogio.model.ts   # Interfaces e tipos
+│   ├── services/
+│   │   └── relogio.service.ts # Serviço de dados
+│   └── app.component.ts       # Componente raiz
+├── styles.css                 # Estilos globais
+└── index.html                 # HTML principal
+\`\`\`
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Funcionalidades de Busca
 
-## Running unit tests
+A busca funciona em tempo real e filtra por:
+- Nome do relógio
+- Marca
+- Categoria
+- Descrição
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Paginação
 
-```bash
-ng test
-```
+- 6 produtos por página (configurável)
+- Navegação por números de página
+- Botões anterior/próxima
+- Indicador de total de resultados
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

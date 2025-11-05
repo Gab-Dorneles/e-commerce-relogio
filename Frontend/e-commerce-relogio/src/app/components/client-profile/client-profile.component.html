@@ -1,0 +1,58 @@
+<div class="profile-container">
+  <div class="profile-card">
+    <div class="profile-header">
+      <div class="avatar client-avatar">
+        <span>{{ getInitial() }}</span>
+      </div>
+      <h2>Meu Perfil</h2>
+      <p class="username">{{ user?.username }}</p>
+    </div>
+
+    <div class="profile-content">
+      <div class="info-section">
+        <h3>Informações da Conta</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Tipo de Conta:</span>
+            <span class="value client-badge">Cliente</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Usuário:</span>
+            <span class="value">{{ user?.username }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Status:</span>
+            <span class="value status-active">Ativo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="client-actions">
+        <h3>Minhas Ações</h3>
+        <div class="action-grid">
+          <button class="action-btn">
+            <span class="icon">🛒</span>
+            <span>Meus Pedidos</span>
+          </button>
+          <button class="action-btn">
+            <span class="icon">❤️</span>
+            <span>Favoritos</span>
+          </button>
+          <button class="action-btn">
+            <span class="icon">📍</span>
+            <span>Endereços</span>
+          </button>
+          <button class="action-btn">
+            <span class="icon">⚙️</span>
+            <span>Configurações</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-actions">
+      <button class="btn-secondary" (click)="goToHome()">Continuar Comprando</button>
+      <button class="btn-logout" (click)="logout()">Sair</button>
+    </div>
+  </div>
+</div>
