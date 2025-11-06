@@ -1,5 +1,6 @@
 import { Component, type OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
+import { RouterLink } from "@angular/router"
 import { Router } from "@angular/router"
 import { AuthService } from "../../services/auth.service"
 import type { User } from "../../services/auth.service"
@@ -7,7 +8,7 @@ import type { User } from "../../services/auth.service"
 @Component({
   selector: "app-admin-profile",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: "./admin-profile.component.html",
   styleUrls: ["./admin-profile.component.css"],
 })
@@ -34,5 +35,8 @@ export class AdminProfileComponent implements OnInit {
 
   goToHome(): void {
     this.router.navigate(["/"])
+  }
+  goToRelogioManagement(): void {
+    this.router.navigate(["/admin/relogios"])
   }
 }

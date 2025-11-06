@@ -1,36 +1,27 @@
 package br.unitins.ecommerce.repository;
 
-import java.util.List;
-
-import br.unitins.ecommerce.model.pedido.Pedido;
-import br.unitins.ecommerce.model.usuario.Usuario;
+import br.unitins.ecommerce.model.Pedido;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @ApplicationScoped
 public class PedidoRepository implements PanacheRepository<Pedido> {
     
-    public List<Pedido> findAll(String login) {
-        return find("usuario.login = ?1", login).list();
-    }
-    
-    public List<Pedido> findAll(Long idUsuario) {
-        return find("usuario.id = ?1", idUsuario).list();
+    public List<Pedido> findByUsuarioId(Long usuarioId) {
+        return list("usuario.id", usuarioId);
     }
 
-    public List<Pedido> findByUsuarioWhereIsFinished (Usuario usuario) {
-
-        if (usuario == null)
-            return null;
-
-        return find("FROM Pedido WHERE usuario = ?1 AND ifConcluida = true", usuario).list();
+    public List<Pedido> findByStatus(String status) {
+        return list("status", status);
     }
 
-    public Pedido findByUsuarioWhereIsNotFinished (Usuario usuario) {
+    public List<Pedido> findByDataPedidoBetween(LocalDateTime inicio, LocalDateTime fim) {
+        return list("dataPedido BETWEEN ?1 AND ?2", inicio, fim);
+    }
 
-        if (usuario == null)
-            return null;
-
-        return find("FROM Pedido WHERE usuario = ?1 AND ifConcluida = false", usuario).firstResult();
+    public long countByStatus(String status) {
+        return count("status", status);
     }
 }

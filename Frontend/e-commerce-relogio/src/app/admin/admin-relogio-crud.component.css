@@ -1,0 +1,52 @@
+.admin-relogio .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.admin-relogio .grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 1.25rem;
+}
+
+.list .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.list th,
+.list td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.row-actions { display:flex; gap:0.5rem; justify-content:flex-end }
+
+.form-card {
+  background: var(--card);
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.form-card h3 { margin-top:0 }
+
+.form-card label { display:block; margin-bottom:0.5rem }
+.form-card input, .form-card textarea { width:100%; padding:0.5rem; border:1px solid var(--border); border-radius:6px; background:var(--card); color:var(--foreground) }
+.form-card textarea { min-height:80px }
+
+.form-actions { display:flex; gap:0.5rem; margin-top:0.75rem }
+
+.btn { padding:0.5rem 0.75rem; border-radius:6px; background:var(--accent); color:var(--accent-foreground); border:none; cursor:pointer }
+.btn.secondary { background:var(--card); color:var(--foreground); border:1px solid var(--border) }
+.btn.small { padding:0.25rem 0.5rem; font-size:0.85rem }
+.btn.danger { background:#ef4444 }
+
+.empty { text-align:center; padding:1rem; color:var(--muted-foreground) }
+
+@media (max-width: 800px) {
+  .admin-relogio .grid { grid-template-columns: 1fr }
+}

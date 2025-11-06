@@ -1,0 +1,25 @@
+<div class="crud">
+  <h2>Estoques</h2>
+  <button (click)="startCreate()">Novo estoque</button>
+
+  <table class="table" *ngIf="estoques.length">
+    <thead><tr><th>Relógio ID</th><th>Quantidade</th><th>Local</th><th>Ações</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let e of estoques">
+        <td>{{e.relogioId}}</td><td>{{e.quantidade}}</td><td>{{e.local}}</td>
+        <td><button (click)="startEdit(e)">Editar</button><button (click)="remove(e.id)">Excluir</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="editing" class="form">
+    <h3>{{ editingId ? 'Editar' : 'Criar' }} estoque</h3>
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <label>Relógio ID: <input type="number" formControlName="relogioId"></label><br>
+      <label>Quantidade: <input type="number" formControlName="quantidade"></label><br>
+      <label>Local: <input formControlName="local"></label><br>
+      <button type="submit" [disabled]="form.invalid">Salvar</button>
+      <button type="button" (click)="cancel()">Cancelar</button>
+    </form>
+  </div>
+</div>

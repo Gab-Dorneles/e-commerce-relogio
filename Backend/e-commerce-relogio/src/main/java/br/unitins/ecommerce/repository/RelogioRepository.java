@@ -1,19 +1,27 @@
 package br.unitins.ecommerce.repository;
 
-import br.unitins.ecommerce.model.produto.Relogio;
-import io.quarkus.hibernate.orm.panache.PanacheQuery;
+import br.unitins.ecommerce.model.Relogio;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
-import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
+import java.math.BigDecimal;
+import java.util.List;
 
 @ApplicationScoped
 public class RelogioRepository implements PanacheRepository<Relogio> {
     
-    public PanacheQuery<Relogio> findByNome(String nome, Sort sort){
+    public List<Relogio> findByGenero(String genero) {
+        return list("genero", genero);
+    }
 
-        if (nome == null)
-            return null;
+    public List<Relogio> findByPrecoBetween(BigDecimal minPreco, BigDecimal maxPreco) {
+        return list("preco BETWEEN ?1 AND ?2", minPreco, maxPreco);
+    }
 
-        return find("UPPER(nome) LIKE ?1 ", sort, "%"+nome.toUpperCase()+"%");
+    public List<Relogio> findByModeloId(Long modeloId) {
+        return list("modeloRef.id", modeloId);
+    }
+
+    public List<Relogio> findByFabricanteId(Long fabricanteId) {
+        return list("fabricante.id", fabricanteId);
     }
 }

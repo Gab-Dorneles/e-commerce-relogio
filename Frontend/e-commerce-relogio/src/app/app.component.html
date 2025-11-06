@@ -1,5 +1,5 @@
 <div class="app-container">
-  <!-- Added navigation bar with login functionality -->
+  <!-- ======= HEADER ======= -->
   <header class="app-header">
     <div class="header-content">
       <div class="logo-section">
@@ -7,14 +7,22 @@
         <h1 class="logo" routerLink="/">Chronos</h1>
         <p class="tagline">Elegância e Precisão em Cada Momento</p>
       </div>
-      
+
       <nav class="nav-section">
         <a routerLink="/" class="nav-link">Loja</a>
-        
+
+        <!-- ======= Usuário não logado ======= -->
         <div *ngIf="!currentUser" class="auth-buttons">
           <button routerLink="/login" class="btn-login">Login</button>
+
+          <!-- 🔘 BOTÃO DE TEMA -->
+          <button class="btn-profile" (click)="toggleTheme()">
+            <span *ngIf="isDarkMode; else lightMode">🌙</span>
+            <ng-template #lightMode>🌞</ng-template>
+          </button>
         </div>
-        
+
+        <!-- ======= Usuário logado ======= -->
         <div *ngIf="currentUser" class="user-menu">
           <button (click)="goToProfile()" class="btn-profile">
             <span class="user-icon">👤</span>
@@ -23,17 +31,25 @@
               {{ currentUser.role === 'admin' ? 'Admin' : 'Cliente' }}
             </span>
           </button>
+
           <button (click)="logout()" class="btn-logout-small">Sair</button>
+
+          <!-- 🔘 BOTÃO DE TEMA -->
+          <button class="btn-profile" (click)="toggleTheme()">
+            <span *ngIf="isDarkMode; else lightModeLogged">🌙</span>
+            <ng-template #lightModeLogged>🌞</ng-template>
+          </button>
         </div>
       </nav>
     </div>
   </header>
-  
-  <!-- Added router-outlet for navigation -->
+
+  <!-- ======= CONTEÚDO PRINCIPAL ======= -->
   <main class="main-content">
     <router-outlet></router-outlet>
   </main>
-  
+
+  <!-- ======= RODAPÉ ======= -->
   <footer class="app-footer">
     <p>&copy; 2025 Relógios Premium. Todos os direitos reservados.</p>
   </footer>

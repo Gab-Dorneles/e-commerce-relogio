@@ -27,20 +27,20 @@
         </div>
       </div>
 
-      <div class="admin-actions">
+      <div *ngIf="user?.role === 'admin'" class="admin-actions">
         <h3>Ações Administrativas</h3>
         <div class="action-grid">
-          <button class="action-btn">
+          <a class="action-btn" [routerLink]="['/admin/relogios']">
             <span class="icon">📊</span>
-            <span>Gerenciar Produtos</span>
-          </button>
+            <span>Gerenciar Relogios</span>
+          </a>
           <button class="action-btn">
             <span class="icon">👥</span>
             <span>Gerenciar Usuários</span>
           </button>
           <button class="action-btn">
             <span class="icon">📦</span>
-            <span>Pedidos</span>
+            <span>Estoque</span>
           </button>
           <button class="action-btn">
             <span class="icon">⚙️</span>

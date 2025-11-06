@@ -1,0 +1,26 @@
+<div class="crud">
+  <h2>Clientes</h2>
+  <button (click)="startCreate()">Novo cliente</button>
+
+  <table class="table" *ngIf="clientes.length">
+    <thead><tr><th>Nome</th><th>Email</th><th>Telefone</th><th>Ações</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let c of clientes">
+        <td>{{c.nome}}</td><td>{{c.email}}</td><td>{{c.telefone}}</td>
+        <td><button (click)="startEdit(c)">Editar</button><button (click)="remove(c.id)">Excluir</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="editing" class="form">
+    <h3>{{ editingId ? 'Editar' : 'Criar' }} cliente</h3>
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <label>Nome: <input formControlName="nome"></label><br>
+      <label>Email: <input formControlName="email"></label><br>
+      <label>Telefone: <input formControlName="telefone"></label><br>
+      <label>Endereço: <input formControlName="endereco"></label><br>
+      <button type="submit" [disabled]="form.invalid">Salvar</button>
+      <button type="button" (click)="cancel()">Cancelar</button>
+    </form>
+  </div>
+</div>

@@ -15,7 +15,20 @@
       "role": "cliente"
     }
   ],
-  "relogios": [],
+  "relogios": [
+    {
+      "id": 1,
+      "nome": "Chrono X",
+      "marca": "Chronos",
+      "preco": 249.9,
+      "descricao": "Relógio elegante",
+      "imagemUrl": "https://via.placeholder.com/200",
+      "categoria": "luxo",
+      "genero": "unissex",
+      "estoque": 10,
+      "destaque": true
+    }
+  ],
   "estoques": [],
   "fornecedores": [],
   "clientes": []

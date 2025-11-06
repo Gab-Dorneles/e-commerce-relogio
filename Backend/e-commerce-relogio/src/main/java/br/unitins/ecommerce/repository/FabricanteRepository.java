@@ -1,19 +1,17 @@
 package br.unitins.ecommerce.repository;
 
-import br.unitins.ecommerce.model.produto.Fabricante;
-import io.quarkus.hibernate.orm.panache.PanacheQuery;
+import br.unitins.ecommerce.model.Fabricante;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
-import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class FabricanteRepository implements PanacheRepository<Fabricante> {
     
-    public PanacheQuery<Fabricante> findByNome(String nome, Sort sort) {
+    public Fabricante findByNome(String nome) {
+        return find("nome", nome).firstResult();
+    }
 
-        if (nome == null)
-            return null;
-
-        return find("UPPER(nome) LIKE ?1 ", sort, "%"+nome.toUpperCase()+"%");
+    public boolean existsByNome(String nome) {
+        return count("nome", nome) > 0;
     }
 }

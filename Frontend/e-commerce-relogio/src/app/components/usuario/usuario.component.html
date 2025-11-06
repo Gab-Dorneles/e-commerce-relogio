@@ -1,0 +1,27 @@
+<div class="crud">
+  <h2>Usuários</h2>
+  <button (click)="startCreate()">Novo usuário</button>
+  <table class="table" *ngIf="usuarios.length">
+    <thead><tr><th>Nome</th><th>Email</th><th>Role</th><th>Ações</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let u of usuarios">
+        <td>{{u.name}}</td><td>{{u.email}}</td><td>{{u.role}}</td>
+        <td><button (click)="startEdit(u)">Editar</button><button (click)="remove(u.id)">Excluir</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="editing" class="form">
+    <h3>{{ editingId ? 'Editar' : 'Criar' }} usuário</h3>
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <label>Nome: <input formControlName="name"></label><br>
+      <label>Email: <input formControlName="email"></label><br>
+      <label>Senha: <input type="password" formControlName="password"></label><br>
+      <label>Role:
+        <select formControlName="role"><option value="cliente">Cliente</option><option value="adm">Admin</option></select>
+      </label><br>
+      <button type="submit" [disabled]="form.invalid">Salvar</button>
+      <button type="button" (click)="cancel()">Cancelar</button>
+    </form>
+  </div>
+</div>

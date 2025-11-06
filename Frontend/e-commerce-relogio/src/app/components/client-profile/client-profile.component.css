@@ -18,7 +18,7 @@
 
 .profile-header {
   background: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--secondary) / 0.8) 100%);
-  color: white;
+  color: rgb(207, 193, 65);
   padding: 3rem 2rem;
   text-align: center;
 }
@@ -27,7 +27,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: white;
+  background: rgb(255, 255, 255);
   color: hsl(var(--secondary));
   display: flex;
   align-items: center;
@@ -162,7 +162,7 @@
 
 .btn-logout {
   background: hsl(var(--destructive));
-  color: white;
+  color: rgb(2, 2, 2);
 }
 
 .btn-logout:hover {

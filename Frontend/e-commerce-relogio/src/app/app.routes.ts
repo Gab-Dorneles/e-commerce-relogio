@@ -12,10 +12,15 @@ export const routes: Routes = [
     loadComponent: () =>
       import("./components/admin-profile/admin-profile.component").then((m) => m.AdminProfileComponent),
   },
+
   {
     path: "client-profile",
     loadComponent: () =>
       import("./components/client-profile/client-profile.component").then((m) => m.ClientProfileComponent),
+  },
+  {
+    path: "admin/relogios",
+    loadComponent: () => import("./admin/admin-relogio-crud.component").then((m) => m.AdminRelogioCrudComponent),
   },
   { path: "**", redirectTo: "" },
 ]

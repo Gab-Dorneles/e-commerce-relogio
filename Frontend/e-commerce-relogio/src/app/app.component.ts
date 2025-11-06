@@ -15,6 +15,9 @@ export class AppComponent implements OnInit {
   title = "Chronos Relógios"
   currentUser: User | null = null
 
+  // 🌗 Variável para armazenar o estado do tema
+  isDarkMode = false
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -35,6 +38,17 @@ export class AppComponent implements OnInit {
       this.router.navigate(["/admin-profile"])
     } else {
       this.router.navigate(["/client-profile"])
+    }
+  }
+
+  // 🌙 Alterna entre tema claro e escuro
+  toggleTheme(): void {
+    this.isDarkMode = !this.isDarkMode
+
+    if (this.isDarkMode) {
+      document.body.classList.add("dark-mode")
+    } else {
+      document.body.classList.remove("dark-mode")
     }
   }
 }

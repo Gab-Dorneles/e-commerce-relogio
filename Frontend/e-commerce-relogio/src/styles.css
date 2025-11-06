@@ -1,34 +1,73 @@
-/* ======= Estilo base sofisticado ======= */
-body {
-  background-color: #ffffff;
-  color: #1a1a1a;
-  font-family: 'Poppins', sans-serif;
+/* Tema Claro */
+:root {
+  --primary-color: #d4af37;
+  --primary-color-dark: #b99d32;
+  --primary-color-light: rgba(212, 175, 55, 0.15);
+  --text-color: #1a1a1a;
+  --text-muted: #8b7a2a;
+  --bg-color: #ffffff;
+  --card-bg: #ffffff;
+  --header-bg: #ffffff;
+  --footer-bg: #fffaf0;
+  --border-color: rgba(212, 175, 55, 0.3);
+  --hover-bg: rgba(212, 175, 55, 0.12);
+  --shadow-color: rgba(212, 175, 55, 0.25);
+}
+
+/* Tema Escuro */
+.dark-theme {
+  --primary-color: #e7c75c;
+  --primary-color-dark: #c7aa3f;
+  --primary-color-light: rgba(231, 199, 92, 0.2);
+  --text-color: #f9fafb;
+  --text-muted: #cfc6a0;
+  --bg-color: #1f1f1f;
+  --card-bg: #2a2a2a;
+  --header-bg: #111111;
+  --footer-bg: #1a1a1a;
+  --border-color: rgba(231, 199, 92, 0.3);
+  --hover-bg: rgba(231, 199, 92, 0.12);
+  --shadow-color: rgba(231, 199, 92, 0.15);
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Playfair Display', serif;
-  color: #d4af37;
+  color: var(--primary-color);
   letter-spacing: 0.5px;
 }
 
 a {
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 button {
   font-family: 'Poppins', sans-serif;
+  cursor: pointer;
 }
 
-/* ======= Header e Navegação ======= */
+/* =======================================
+   HEADER E NAVEGAÇÃO
+======================================= */
 .app-header {
-  background: #ffffff;
-  color: #1a1a1a;
+  background: var(--header-bg);
+  color: var(--text-color);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -50,18 +89,17 @@ button {
   font-family: 'Cinzel', serif;
   font-size: 2rem;
   font-weight: 700;
-  color: #d4af37;
+  color: var(--primary-color);
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .tagline {
   font-size: 0.95rem;
-  color: #b79e4a;
+  color: var(--text-muted);
   font-weight: 500;
 }
 
-/* ======= Navegação ======= */
 .nav-section {
   display: flex;
   align-items: center;
@@ -69,7 +107,7 @@ button {
 }
 
 .nav-link {
-  color: #1a1a1a;
+  color: var(--text-color);
   font-weight: 500;
   font-size: 1rem;
   padding: 0.6rem 1.2rem;
@@ -78,37 +116,40 @@ button {
 }
 
 .nav-link:hover {
-  color: #d4af37;
-  background: rgba(212, 175, 55, 0.12);
+  color: var(--primary-color);
+  background: var(--hover-bg);
   transform: translateY(-2px);
 }
 
-/* ======= Botões ======= */
+/* =======================================
+   BOTÕES
+======================================= */
 .auth-buttons {
   display: flex;
   gap: 0.75rem;
 }
 
 .btn-login {
-  background: linear-gradient(135deg, #d4af37, #b99d32);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
   color: #000;
   border: none;
   padding: 0.625rem 1.5rem;
   border-radius: 0.5rem;
   font-weight: 600;
   font-size: 0.95rem;
-  cursor: pointer;
+  box-shadow: 0 3px 10px var(--shadow-color);
   transition: all 0.3s ease;
-  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
 }
 
 .btn-login:hover {
-  background: linear-gradient(135deg, #f4d35e, #d4af37);
+  background: linear-gradient(135deg, var(--primary-color-light), var(--primary-color));
   transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 6px 18px var(--shadow-color);
 }
 
-/* ======= Perfil do Usuário ======= */
+/* =======================================
+   PERFIL DO USUÁRIO
+======================================= */
 .user-menu {
   display: flex;
   align-items: center;
@@ -120,26 +161,21 @@ button {
   align-items: center;
   gap: 0.5rem;
   background: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(212, 175, 55, 0.5);
+  border: 1px solid var(--border-color);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  color: #1a1a1a;
-  cursor: pointer;
-  transition: all 0.3s;
+  color: var(--text-color);
+  transition: all 0.3s ease;
   font-weight: 500;
 }
 
 .btn-profile:hover {
-  background: rgba(212, 175, 55, 0.15);
-  border-color: #d4af37;
-}
-
-.user-name {
-  font-size: 0.95rem;
+  background: var(--hover-bg);
+  border-color: var(--primary-color);
 }
 
 .user-badge.admin {
-  background: #d4af37;
+  background: var(--primary-color);
   color: #000;
   padding: 0.2rem 0.6rem;
   border-radius: 1rem;
@@ -148,9 +184,11 @@ button {
   text-transform: uppercase;
 }
 
-/* ======= Conteúdo Principal ======= */
+/* =======================================
+   CONTEÚDO PRINCIPAL
+======================================= */
 .main-content {
-  background: linear-gradient(to bottom, #fff, #fefbf4);
+  background: linear-gradient(to bottom, var(--bg-color), #fefbf4);
   padding: 3rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -159,64 +197,62 @@ button {
 .section-title {
   text-align: center;
   font-size: 2rem;
-  color: #d4af37;
+  color: var(--primary-color);
   margin-bottom: 2rem;
-  font-family: 'Playfair Display', serif;
 }
 
-/* ======= Cards de Produto ======= */
+/* =======================================
+   CARDS DE PRODUTO
+======================================= */
 .product-card {
-  background: #ffffff;
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 1rem;
   padding: 1.5rem;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.1);
+  box-shadow: 0 8px 20px var(--shadow-color);
   transition: all 0.3s ease;
 }
 
 .product-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 10px 25px var(--shadow-color);
 }
 
 .product-name {
-  font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  color: #1a1a1a;
+  color: var(--text-color);
 }
 
 .product-price {
-  color: #d4af37;
+  color: var(--primary-color);
   font-weight: 600;
   margin-top: 0.5rem;
 }
 
-/* ======= Rodapé ======= */
+/* =======================================
+   RODAPÉ
+======================================= */
 .app-footer {
-  background: #fffaf0;
-  color: #1a1a1a;
+  background: var(--footer-bg);
+  color: var(--text-color);
   text-align: center;
   padding: 2rem;
-  border-top: 2px solid #d4af37;
-  font-family: 'Poppins', sans-serif;
+  border-top: 2px solid var(--primary-color);
   letter-spacing: 0.5px;
 }
 
 .app-footer p {
-  margin: 0;
-  color: #8b7a2a;
+  color: var(--text-muted);
 }
 
-/* ======= Responsividade ======= */
+/* =======================================
+   RESPONSIVIDADE
+======================================= */
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
     gap: 1rem;
-  }
-
-  .logo-section {
-    text-align: center;
   }
 
   .nav-section {
@@ -229,8 +265,7 @@ button {
     width: 100%;
   }
 
-  .btn-profile,
-  .btn-logout-small {
+  .btn-profile {
     width: 100%;
     justify-content: center;
   }
